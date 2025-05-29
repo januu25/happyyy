@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rain of Hearts</title>
+  <style>
+    body {
+      background-color: #fbfaf4;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .header-text {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #d6336c;
+  z-index: 2;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff4081;
+      animation: fall 5s linear infinite;
+    }
+    .card {
+      width: 200px;
+      height: 300px;
+      perspective: 1000px;
+    }
+    .inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      position: relative;
+      cursor: pointer;
+    }
+    .card:hover .inner {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      color: #d6336c;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+    .front { background: #fff0f6 }
+    .back  { background: #e4f2fa; transform: rotateY(180deg); }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        transform: scale(1);
+      }
+      100% {
+        top: 100%;
+        transform: scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="header-text">wanna know my heart?</h1>
+  <div class="card">
+    <div class="inner">
+      <div class="front">no?</div>
+      <div class="back"><a href="ex2.html" title="i love youuu!">yessss!!!</a></div>
+    </div>
+  </div>
+
+
+  <script>
+    // Create heart elements that fall from the top
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
+
