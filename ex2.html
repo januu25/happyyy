@@ -18,12 +18,13 @@
     }
 
     .card {
-      width: 300px;
-      height: 200px;
-      margin: 20px auto;
-      perspective: 1000px;
-      cursor: pointer;
-    }
+  width: 340px;
+  height: 300px; /* was 200px */
+  margin: 20px auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
 
     .card-inner {
       width: 100%;
@@ -56,14 +57,17 @@
       color: #ff4081;
     }
 
-    .card-back {
-      transform: rotateY(180deg);
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
-      color: #c2185b;
-      line-height: 1.6;
-      white-space: pre-line;
-    }
+   .card-back {
+  transform: rotateY(180deg);
+  font-family: 'Georgia', serif;
+  font-size: 0.75rem; /* smaller font */
+  color: #c2185b;
+  line-height: 1.2; /* tighter lines */
+  white-space: pre-line;
+  padding: 10px;
+  overflow: hidden;
+}
+
 
     .floating-heart {
       position: fixed;
@@ -120,52 +124,60 @@
     🎁 Claim your reward: My heart is yours forever.
   </footer>
 
-  <script>
-    const letter = `My dearest love,
+ <script>
+  const letter = `My dearest love,
 
-From the moment we met, my life has been filled with joy, laughter, and warmth. One year later, I’m even more in love with you.
+From the moment we met in college, my life has been filled with joy, laughter, and endless emotions. One year later, I’m even more in love with you.
 
-Thank you for being my everything. I promise to continue cherishing every moment we share.
+Thank you for being my everything, for being the shoulder I can always lean on. I know I’ve made mistakes, but...
 
-Forever yours,
-Janani`;
+I promise to cherish every moment with you, 
+to treasure you always, and love you forever.
 
-    let isFlipped = false;
+Here's to countless anniversaries together.
 
-    function flipCard() {
-      const cardInner = document.getElementById("cardInner");
-      const typedLetter = document.getElementById("typed-letter");
-      const music = document.getElementById("bg-music");
+HAPPY 1ST ANNIVERSARY, AMMUUUU!
 
-      if (!isFlipped) {
-        cardInner.classList.add("flipped");
-        typedLetter.innerHTML = "";
-        typeWriterEffect(letter, typedLetter, 0);
-        music.play();
-        isFlipped = true;
-      }
+Forever yours,  
+THANGAMYLIUUU`;
+
+  let isFlipped = false;
+
+  function flipCard() {
+    const cardInner = document.getElementById("cardInner");
+    const typedLetter = document.getElementById("typed-letter");
+    const music = document.getElementById("bg-music");
+
+    if (!isFlipped) {
+      cardInner.classList.add("flipped");
+      typedLetter.innerHTML = "";
+      typeWriterEffect(letter, typedLetter, 0);
+      music.play();
+      isFlipped = true;
     }
+  }
 
-    function typeWriterEffect(text, element, index) {
-      if (index < text.length) {
-        element.innerHTML += text.charAt(index);
-        setTimeout(() => {
-          typeWriterEffect(text, element, index + 1);
-        }, 40);
-      }
+  function typeWriterEffect(text, element, index) {
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index);
+      setTimeout(() => {
+        typeWriterEffect(text, element, index + 1);
+      }, 40);
     }
+  }
 
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("floating-heart");
-      heart.textContent = "🌸";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 10 + 20 + "px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("floating-heart");
+    heart.textContent = "🌸";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 10 + 20 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
 
-    setInterval(createHeart, 500);
-  </script>
+  setInterval(createHeart, 500);
+</script>
+
 </body>
 </html>
